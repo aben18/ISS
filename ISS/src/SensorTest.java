@@ -1,8 +1,9 @@
-import static org.junit.Assert.assertEquals;
+package main;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
-import java.util.Queue;
+
 
 import org.junit.Test;
 
@@ -120,7 +121,7 @@ public class SensorTest {
         assertTrue("The solar sensor's return value of " + solarData + " was less than 1.",
                 solarData > 0);
         assertTrue("The solar sensor's return value of " + solarData + " was greater than 1799.",
-                solarData < 1800);
+                solarData <= 1800);
     }
 
     /**
@@ -153,7 +154,7 @@ public class SensorTest {
         sensorInfo = s.substring(0, 16);
         data = Integer.parseInt(s.substring(16));
         assertTrue(sensorInfo.equals("Temperature(F): "));
-        assertTrue(data > -40 && data < 120);
+        assertTrue(data > -40 && data < 150);
 
         // test case for wind speed sensor call()
         s = windSpeedSensor.call();
@@ -197,7 +198,7 @@ public class SensorTest {
 
         assertTrue(list.get(0).equals("----Console Receiver Output----"));
         assertTrue(list.get(1).substring(0, 16).equals("Temperature(F): "));
-        assertTrue(tempData >= -40 && tempData <= 120);
+        assertTrue(tempData >= -40 && tempData <= 150);
 
         assertTrue(list.get(2).substring(0, 18).equals("Wind Speed(MPH) : "));
         assertTrue(windSpeedData >= 0 && windSpeedData <= 200);
