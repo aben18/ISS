@@ -1,9 +1,8 @@
-package main;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
-
+import java.util.Queue;
 
 import org.junit.Test;
 
@@ -53,9 +52,9 @@ public class SensorTest {
         tempData = tempSensor.getData();
         //System.out.println(data);
         assertTrue("The temperature sensor's return value of " + tempData + " was less than -40.",
-                tempData > -40);
+                tempData >= -40);
         assertTrue("The temperature sensor's return value of " + tempData + " was greater than 150.",
-                tempData < 150);
+                tempData <= 150);
     }
 
     /**
@@ -66,7 +65,7 @@ public class SensorTest {
         windSpeedData = windSpeedSensor.getData();
         //System.out.println("Testing wind speed: " + windSpeedData);
         assertTrue("The wind speed sensor's return value of " + windSpeedData + " was less than 0.",
-                windSpeedData > 0);
+                windSpeedData >= 0);
     }
 
     /**
@@ -94,7 +93,7 @@ public class SensorTest {
                 || s.equals("NorthWest"));
 
         int num = windDirectionSensor.getData();
-        assertTrue(num >= 0 && num < 361);
+        assertTrue(num >= 0 && num <= 360);
 
         // test determineDirection()
         assertTrue(windDirectionSensor.determineDirection(0.0).equals("North"));
@@ -121,7 +120,7 @@ public class SensorTest {
         assertTrue("The solar sensor's return value of " + solarData + " was less than 1.",
                 solarData > 0);
         assertTrue("The solar sensor's return value of " + solarData + " was greater than 1799.",
-                solarData <= 1800);
+                solarData < 1800);
     }
 
     /**

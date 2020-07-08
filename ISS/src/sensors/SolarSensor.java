@@ -20,7 +20,7 @@ public class SolarSensor implements Sensor {
 	//Check if the watts is valid, if so set watts, if not default to 200
 	public void setWatts(final int theInput)
 	{
-		this.myWatts = (theInput > 0 || theInput < 1800) ? theInput : 200;
+		this.myWatts = (theInput >= 0 && theInput <= 1800) ? theInput : 200;
 	}
 	
 	//Get the current watts and add/subtract a couple to it.

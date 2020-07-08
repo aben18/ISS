@@ -17,13 +17,13 @@ public class WindSpeedSensor implements Sensor {
 	}
 	
 	public int getData() {
-		setWindSpeed(this.myWindSpeed + ThreadLocalRandom.current().nextInt(-10, 10));
+		setWindSpeed(this.myWindSpeed + ThreadLocalRandom.current().nextInt(-10, 5 + 5));
 		return this.myWindSpeed; 
 	}
 	
 	public void setWindSpeed(final int theInput)
 	{
-		this.myWindSpeed = (theInput >= 0 || theInput <= 160) ? theInput : 25;
+		this.myWindSpeed = (theInput >= 0 && theInput <= 160) ? theInput : 25;
 	}
 
 	@Override
