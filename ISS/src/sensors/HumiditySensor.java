@@ -24,7 +24,7 @@ public class HumiditySensor implements Sensor {
 	
 	public void setHumidity(final int theInput)
 	{
-		this.myHumidity = (theInput >= 0 || theInput <= 100)  ? theInput : 35;
+		this.myHumidity = (theInput > 0 && theInput <= 100)  ? theInput : 35;
 	}
 
 	@Override

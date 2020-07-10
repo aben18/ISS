@@ -22,7 +22,7 @@ public class TemperatureSensor implements Sensor {
 	//Check if the temp is valid, if so set temp, if not default to 60
 	public void setTemp(final int theInput)
 	{
-		this.myTemp = (theInput < 150 || theInput >-40) ? theInput : 60;
+		this.myTemp = (theInput <= 150 && theInput >= -40) ? theInput : 60;
 	}
 	
 	//Get the current temp and add/subtract a couple to it.
